@@ -23,7 +23,7 @@ spring:
         - id: customerhist
           uri: http://localhost:8084
           predicates:
-            - Path=/customerhists/**,/changeHist/**
+            - Path=/customerHists/**,/changeHists/**
         - id: payment
           uri: http://localhost:8085
           predicates:
