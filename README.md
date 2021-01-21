@@ -68,8 +68,8 @@ Destination Rule 을 통하여 istio connectionPool을 제한하여 Circuit Brea
 
 ![istio-destinationrule](https://user-images.githubusercontent.com/38008563/105283110-22906100-5bf3-11eb-807a-3e7cdbd3e565.png)
 
-customer의 req/res 에 대하여 customerhist가 3초간 대기하는 로직이 추가되어 있어
-15초동안 10건씩 부하를 발생시켜 Circuit Breaker 작동을 확인
+customer의 req/res 에 대하여 customerhist가 3초간 대기하는 로직이 추가되어 있어 customer를 통한 기능 확인
+
 ![istio-connectionPool](https://user-images.githubusercontent.com/38008563/105240526-6f9f1380-5bb0-11eb-96d4-249cf1b6cbcb.png)
 
 
@@ -78,7 +78,7 @@ siege -c10 -t15S -v --content-type "application/json" 'http://customer:8080/cust
 
 일부 트래픽은 정상처리되고 있으나, 일부는 503 오류 Return 되고 있음을 확인
 
-![cir1](https://user-images.githubusercontent.com/38008563/105283766-78193d80-5bf4-11eb-9dfa-ef3665da31f7.png)
+![cir1](https://user-images.githubusercontent.com/38008563/105284139-2a510500-5bf5-11eb-8d55-5f0ec0014cff.png)
 
 해당 내용은 Kiali에서도 확인이 가능
 ![kiali](https://user-images.githubusercontent.com/38008563/105283982-e3fba600-5bf4-11eb-8e26-4ba503e1c7d9.png)
