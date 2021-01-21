@@ -106,8 +106,9 @@ Deploy.yaml 파일 설정
 ![bf_readiness](https://user-images.githubusercontent.com/38008563/105287113-e2cd7780-5bfa-11eb-8d34-0707544e7f44.png)
 
 Deploy.yaml에 설정된 Readiness
+
 ![bf_readiness](https://user-images.githubusercontent.com/38008563/105288780-4eafe000-5bfb-11eb-8ca5-099cb243016e.png)
-![bf_readiness2](https://user-images.githubusercontent.com/38008563/105292261-2c6a9200-5bfc-11eb-8894-df431ed342a4.png)
+
 siege 테스트 중에 deploy.yaml 내 이미지 교체
 
 siege -c30 -t300S -v 'http://customerhist:8080/customerHists'
