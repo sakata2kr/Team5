@@ -136,12 +136,13 @@ ConfigMap으로 logback 설정 정보를 입력하고 해당 정보를 PVC를 �
 
 아래 조건으로 Deploy
 
-![liveness](https://user-images.githubusercontent.com/38008563/105301682-76ed0e00-5bfe-11eb-9de5-198c50a4c011.png)
+![liveness](https://user-images.githubusercontent.com/38008563/105302774-ba477c80-5bfe-11eb-9251-4fb5d8050f5c.png)
 
-루트 아래 iamalive 가 없으므로 계속 restart함 / pod에 접근하여 iamalive 더미 파일을 생성
+루트 아래 iamalive 가 없으므로 계속 restart함
 
-![liveness3](https://user-images.githubusercontent.com/41769626/105143493-472b0100-5b3f-11eb-992d-e1a1cfc43ca4.PNG)
+![crash1](https://user-images.githubusercontent.com/38008563/105306926-b536fd00-5bff-11eb-9dba-1954779b3c6a.png)
+![crash2](https://user-images.githubusercontent.com/38008563/105306254-8caf0300-5bff-11eb-93bc-cfa6c4b3e1f3.png)
 
-생성 후 조건을 만족하여 더 이상 restart 되지 않음
+ pod에 접근하여 iamalive 더미 파일을 생성 후 조건을 만족하여 더 이상 restart 되지 않음
 
-![liveness2](https://user-images.githubusercontent.com/41769626/105143524-4eeaa580-5b3f-11eb-9baf-a87c6ea7ada3.PNG)
+![liveness2](https://user-images.githubusercontent.com/38008563/105311484-c9c7c500-5c00-11eb-9856-8a76c151a152.png)
