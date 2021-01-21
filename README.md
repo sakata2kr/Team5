@@ -30,12 +30,12 @@
 신규 고객이 가입하면 고객정보 이력이 NEW 상태로 생성된다 (동기, req/res)
 
 ![customer-req](https://user-images.githubusercontent.com/38008563/105272559-f4078b80-5bdc-11eb-81df-782b9cac1f28.png)
-![customerhist-res](https://user-images.githubusercontent.com/41769626/105133651-77b76e80-5b30-11eb-9adf-2edfc8feac2c.PNG)
+![customerhist-res](https://user-images.githubusercontent.com/38008563/105274431-83626e00-5be0-11eb-8391-b825f54d2082.png)
 
 신규 고객 정보가 변경되면 고객정보 이력이 MOD 상태로 1건 추가로 생성된다 (비동기, pub/sub)
 
-![saga](https://user-images.githubusercontent.com/41769626/105133790-b3eacf00-5b30-11eb-8c5e-ab4008c590ed.PNG)
-![saga2](https://user-images.githubusercontent.com/41769626/105133796-b51bfc00-5b30-11eb-8205-c5f4fd3e1208.PNG)
+![saga](https://user-images.githubusercontent.com/38008563/105278153-3f736700-5be8-11eb-848a-0c038a28a95e.png)
+![saga2](https://user-images.githubusercontent.com/38008563/105278062-1226b900-5be8-11eb-8979-0100e781963c.png)
 
 
 고객정보 이력이 생성되면 고객이력의 changeHist에도 이력정보가 같이 생성된다. (CQRS)
