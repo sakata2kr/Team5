@@ -40,40 +40,48 @@
 
 고객정보 이력이 생성되면 고객이력의 changeHist에도 이력정보가 같이 생성된다. (CQRS)
 
-![cqrs](https://user-images.githubusercontent.com/41769626/105133840-c6650880-5b30-11eb-8921-38b7d063c2a5.PNG)
+![cqrs](https://user-images.githubusercontent.com/38008563/105280034-3a181b80-5bec-11eb-98d9-a4a526e7b5fa.png)
 
 
 # 장애 격리
 
-고객 정보 이력 서비스가 내려가더라도 고객 서비스는 정상 동작한다.
+고객 정보 이력 서비스가 내려가더라도 고객정보 변경 처리는 가능하다.
 
-![장애차단](https://user-images.githubusercontent.com/41769626/105134333-9c601600-5b31-11eb-915e-68831709ba6f.PNG)
+![장애격리](https://user-images.githubusercontent.com/38008563/105280560-63857700-5bed-11eb-984f-ffd59d2b4c6b.png)
 
 고객 정보 이력 서비스가 올라온 후 다시 고객정보 변경 처리를 진행하면 고객정보 이력이 생성된다.
 
-![장애차단2](https://user-images.githubusercontent.com/41769626/105134460-d03b3b80-5b31-11eb-8e5a-3f08b6686ec5.PNG)
+![장애격리_조치후](https://user-images.githubusercontent.com/38008563/105280872-28d00e80-5bee-11eb-86c4-e9866013a6b9.png)
 
 
 # Gateway
 
-istio-gateway를 통하여 외부 브라우저에서 접속이 가능
+istio-ingressgateway를 통하여 외부 브라우저에서 접속이 가능
 
-![gateway](https://user-images.githubusercontent.com/41769626/105133937-ec8aa880-5b30-11eb-954e-181ca496ffc5.PNG)
+![istio-system-svc](https://user-images.githubusercontent.com/38008563/105280951-62087e80-5bee-11eb-9a2c-49ee51886f37.png)
+![virtualservice](https://user-images.githubusercontent.com/38008563/105282966-d34a3080-5bf2-11eb-86f5-afcc6d7290cd.png)
+![external-ip](https://user-images.githubusercontent.com/38008563/105282729-50c17100-5bf2-11eb-9f8a-cb031ec30647.png)
 
 # Circuit Breaker
 
-istio connectionPool을 사용한 Circuit Breaker
+Destination Rule 을 통하여 istio connectionPool을 제한하여 Circuit Breaker를 구현
 
+![istio-destinationrule](https://user-images.githubusercontent.com/38008563/105283110-22906100-5bf3-11eb-807a-3e7cdbd3e565.png)
+
+customer의 req/res 에 대하여 customerhist가 3초간 대기하는 로직이 추가되어 있어
+15초동안 10건씩 부하를 발생시켜 Circuit Breaker 작동을 확인
 ![istio-connectionPool](https://user-images.githubusercontent.com/38008563/105240526-6f9f1380-5bb0-11eb-96d4-249cf1b6cbcb.png)
 
 
-Siege 를 사용하여 100클라이언트로 20초간 부하를 발생시킨다.
-siege -c100 -t60S -r10 -v --content-type "application/json" 'http://payment:8080/pays POST {"payId":1}'
+Siege 를 사용하여 10클라이언트로 15초간 부하를 발생
+siege -c10 -t15S -v --content-type "application/json" 'http://customer:8080/customers POST {"name":"test", "phone":"010" , "address":"USA", "age":30 }'
 
-부하가 발생된 요청은 500으로 빠지며 Availability 가 감소함을 확인한다.
+일부 트래픽은 정상처리되고 있으나, 일부는 503 오류 Return 되고 있음을 확인
 
-![cir1](https://user-images.githubusercontent.com/41769626/105141802-0c27ce00-5b3d-11eb-8d8f-03df20d32367.PNG)
-![cir](https://user-images.githubusercontent.com/41769626/105141805-0d58fb00-5b3d-11eb-9a67-fc6b6291febf.PNG)
+![cir1](https://user-images.githubusercontent.com/38008563/105283766-78193d80-5bf4-11eb-9dfa-ef3665da31f7.png)
+
+해당 내용은 Kiali에서도 확인이 가능
+![kiali](https://user-images.githubusercontent.com/38008563/105283982-e3fba600-5bf4-11eb-8e26-4ba503e1c7d9.png)
 
 # Autoscale(HPA)
 autoscale 생성 및 siege 활용 부하 생성
