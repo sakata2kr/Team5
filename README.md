@@ -97,23 +97,25 @@ Deploy.yaml 파일 설정
 
 부하 생성으로 인한 Pod Scale-Out 확인
 
-![hparesult](https://user-images.githubusercontent.com/41769626/105137145-2f9b4a80-5b36-11eb-8ddb-edc2b7b91381.PNG)
-![hparesult2](https://user-images.githubusercontent.com/41769626/105137128-2ad69680-5b36-11eb-957d-c1a824e35522.PNG)
-![hpa3](https://user-images.githubusercontent.com/38008563/105286025-df38f100-5bf8-11eb-828b-4174eb900023.png)
+![af_hpa](https://user-images.githubusercontent.com/38008563/105286025-df38f100-5bf8-11eb-828b-4174eb900023.png)
 
 
 # Readiness Probe
 
-Deploy.yaml 에 설정 적용 후 이미지 교체와 동시에 siege 테스트 수행
+이미지 교체 이전의 이미지 버전
+![bf_readiness](https://user-images.githubusercontent.com/38008563/105287113-e2cd7780-5bfa-11eb-8d34-0707544e7f44.png)
 
-kubectl set image deployment order order=final05crg.azurecr.io/mileages:v10C
-siege -c100 -t20S -v 'http://mileage:8080/mileages'
+Deploy.yaml에 설정된 Readiness
+![bf_readiness](https://user-images.githubusercontent.com/38008563/105288780-4eafe000-5bfb-11eb-8ca5-099cb243016e.png)
+![bf_readiness2](https://user-images.githubusercontent.com/38008563/105292261-2c6a9200-5bfc-11eb-8894-df431ed342a4.png)
+siege 테스트 중에 deploy.yaml 내 이미지 교체
 
-![readi2](https://user-images.githubusercontent.com/41769626/105137674-0929df00-5b37-11eb-83a4-d1eec543d47f.PNG)
+siege -c30 -t300S -v 'http://customerhist:8080/customerHists'
+kubectl set image deployment customerhist -n good-morning customerhist=skcc13.azurecr.io/foodcatalog:v1beta1
 
 수행 결과 Avaliability 100%
 
-![readi](https://user-images.githubusercontent.com/41769626/105137803-442c1280-5b37-11eb-8cda-4dd716c0ea75.PNG)
+![readi](https://user-images.githubusercontent.com/38008563/105294473-ba467d00-5bfc-11eb-8ea4-67bd528de4a8.png)
 
 # ConfigMap/Presistence Volume
 ConfigMap으로 logback 설정 정보를 입력하고 해당 정보를 PVC를 통하여 Pod에 Mount하여 Pod 로깅 포맷을 구성
