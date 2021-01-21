@@ -78,26 +78,28 @@ siege -c10 -t15S -v --content-type "application/json" 'http://customer:8080/cust
 
 일부 트래픽은 정상처리되고 있으나, 일부는 503 오류 Return 되고 있음을 확인
 
-![cir1](https://user-images.githubusercontent.com/38008563/105284139-2a510500-5bf5-11eb-8d55-5f0ec0014cff.png)
+![cir1](https://user-images.githubusercontent.com/38008563/105284235-6c7a4680-5bf5-11eb-8010-b8732c07d4f5.png)
 
 해당 내용은 Kiali에서도 확인이 가능
 ![kiali](https://user-images.githubusercontent.com/38008563/105283982-e3fba600-5bf4-11eb-8e26-4ba503e1c7d9.png)
 
 # Autoscale(HPA)
 autoscale 생성 및 siege 활용 부하 생성
+부하발생 전 상황
+![bf_hpa](https://user-images.githubusercontent.com/38008563/105285899-a6991780-5bf8-11eb-8e6f-5d8215adf6d6.png)
 
 Deploy.yaml 파일 설정
 
-![resource](https://user-images.githubusercontent.com/38008563/105245032-aecf6380-5bb4-11eb-9f28-a284d4700e3c.png)
+![resource](https://user-images.githubusercontent.com/38008563/105284399-b105e200-5bf5-11eb-9539-1b7b8fd49ea0.png)
 
 
-![hpa1](https://user-images.githubusercontent.com/41769626/105137057-1397a900-5b36-11eb-9119-014b2580510f.PNG)
+![hpa](https://user-images.githubusercontent.com/38008563/105285771-6c2f7a80-5bf8-11eb-814b-3ffa1e396431.png)
 
 부하 생성으로 인한 Pod Scale-Out 확인
 
-![hpa](https://user-images.githubusercontent.com/41769626/105137145-2f9b4a80-5b36-11eb-8ddb-edc2b7b91381.PNG)
-![hpa2](https://user-images.githubusercontent.com/41769626/105137128-2ad69680-5b36-11eb-957d-c1a824e35522.PNG)
-![hpa3](https://user-images.githubusercontent.com/41769626/105137131-2c07c380-5b36-11eb-963f-f95fc524c331.PNG)
+![hparesult](https://user-images.githubusercontent.com/41769626/105137145-2f9b4a80-5b36-11eb-8ddb-edc2b7b91381.PNG)
+![hparesult2](https://user-images.githubusercontent.com/41769626/105137128-2ad69680-5b36-11eb-957d-c1a824e35522.PNG)
+![hpa3](https://user-images.githubusercontent.com/38008563/105286025-df38f100-5bf8-11eb-828b-4174eb900023.png)
 
 
 # Readiness Probe
