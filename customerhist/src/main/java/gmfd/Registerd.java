@@ -1,6 +1,6 @@
 package gmfd;
 
-public class CheckValid extends AbstractEvent {
+public class Registerd extends AbstractEvent {
 
     private Long id;
     private Long customerid;

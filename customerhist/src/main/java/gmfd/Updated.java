@@ -1,6 +1,6 @@
 package gmfd;
 
-public class AddModHist extends AbstractEvent {
+public class Updated extends AbstractEvent {
 
     private Long id;
     private Long customerid;

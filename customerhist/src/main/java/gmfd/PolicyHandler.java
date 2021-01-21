@@ -23,18 +23,18 @@ public class PolicyHandler{
     gmfd.CustomerHistRepository customerHistRepository;
 
     @StreamListener(KafkaProcessor.INPUT)
-    public void whenever_updated(@Payload AddModHist addModHist){
+    public void whenever_updated(@Payload Updated updated){
 
-        if(addModHist.isMe()){
-            logger.info("##### listener customer addModHist : " + addModHist.toJson());
+        if(updated.isMe()){
+            logger.info("##### listener customer addModHist : " + updated.toJson());
 
             gmfd.CustomerHist customerHist = new gmfd.CustomerHist();
 
-            customerHist.setCustomerid(addModHist.getId());
-            customerHist.setName(addModHist.getName());
-            customerHist.setAddress(addModHist.getAddress());
-            customerHist.setAge(addModHist.getAge());
-            customerHist.setPhone(addModHist.getPhone());
+            customerHist.setCustomerid(updated.getId());
+            customerHist.setName(updated.getName());
+            customerHist.setAddress(updated.getAddress());
+            customerHist.setAge(updated.getAge());
+            customerHist.setPhone(updated.getPhone());
             customerHist.setStatus("MOD");
 
             customerHistRepository.save(customerHist);
@@ -43,17 +43,17 @@ public class PolicyHandler{
     }
 
     @StreamListener(KafkaProcessor.INPUT)
-    public void whenever_updated(@Payload AddDelHist addDelHist){
+    public void whenever_updated(@Payload Withdrawed withdrawed){
 
-        if(addDelHist.isMe()){
-            logger.info("##### listener customer addDelHist : " + addDelHist.toJson());
+        if(withdrawed.isMe()){
+            logger.info("##### listener customer addDelHist : " + withdrawed.toJson());
 
             gmfd.CustomerHist customerHist = new gmfd.CustomerHist();
-            customerHist.setCustomerid(addDelHist.getId());
-            customerHist.setName(addDelHist.getName());
-            customerHist.setAddress(addDelHist.getAddress());
-            customerHist.setAge(addDelHist.getAge());
-            customerHist.setPhone(addDelHist.getPhone());
+            customerHist.setCustomerid(withdrawed.getId());
+            customerHist.setName(withdrawed.getName());
+            customerHist.setAddress(withdrawed.getAddress());
+            customerHist.setAge(withdrawed.getAge());
+            customerHist.setPhone(withdrawed.getPhone());
             customerHist.setStatus("DEL");
 
             customerHistRepository.save(customerHist);

@@ -22,13 +22,13 @@ public class CustomerHist {
 
     @PostPersist
     public void onPostPersist(){
-        CheckValid checkValid = new CheckValid();
-        BeanUtils.copyProperties(this, checkValid);
+        Registerd registerd = new Registerd();
+        BeanUtils.copyProperties(this, registerd);
 
         TransactionSynchronizationManager.registerSynchronization(new TransactionSynchronizationAdapter() {
             @Override
             public void afterCommit( ) {
-                checkValid.publishAfterCommit();
+                registerd.publishAfterCommit();
             }
         });
 

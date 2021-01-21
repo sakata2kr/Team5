@@ -1,6 +1,6 @@
 package gmfd;
 
-public class AddDelHist extends AbstractEvent {
+public class Withdrawed extends AbstractEvent {
 
     private Long id;
     private Long customerid;
