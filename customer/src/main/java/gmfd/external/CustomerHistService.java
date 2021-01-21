@@ -10,6 +10,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public interface CustomerHistService {
 
     @RequestMapping(method= RequestMethod.POST, path="/customerHists")
-    public void newCustomerRegist(@RequestBody CustomerHist customerHist);
+    public void checkValid(@RequestBody CustomerHist customerHist);
 
 }

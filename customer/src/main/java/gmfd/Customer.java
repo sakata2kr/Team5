@@ -33,7 +33,7 @@ public class Customer {
         customerHist.setStatus("NEW");
 
         CustomerApplication.applicationContext.getBean(gmfd.external.CustomerHistService.class)
-                .newCustomerRegist(customerHist);
+                .checkValid(customerHist);
 
 
     }
