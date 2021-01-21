@@ -29,8 +29,8 @@
 
 신규 고객이 가입하면 고객정보 이력이 NEW 상태로 생성된다 (동기, req/res)
 
-![reqres-2](https://user-images.githubusercontent.com/41769626/105133623-6a9a7f80-5b30-11eb-8d83-1db0f6fb22c7.PNG)
-![reqres](https://user-images.githubusercontent.com/41769626/105133651-77b76e80-5b30-11eb-9adf-2edfc8feac2c.PNG)
+![customer-req](https://user-images.githubusercontent.com/38008563/105272559-f4078b80-5bdc-11eb-81df-782b9cac1f28.png)
+![customerhist-res](https://user-images.githubusercontent.com/41769626/105133651-77b76e80-5b30-11eb-9adf-2edfc8feac2c.PNG)
 
 신규 고객 정보가 변경되면 고객정보 이력이 MOD 상태로 1건 추가로 생성된다 (비동기, pub/sub)
 
