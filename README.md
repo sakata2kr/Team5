@@ -21,7 +21,7 @@
 
 
 # Event Storming 모델
- ![event-storming](https://user-images.githubusercontent.com/38008563/105215660-e1696400-5b94-11eb-9951-642ed55ad159.jpg)
+ ![event-storming](https://user-images.githubusercontent.com/38008563/105314482-80c44080-5c01-11eb-8dd1-ce6726188498.png)
 
 ## 구현 점검
 
