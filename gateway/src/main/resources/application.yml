@@ -66,7 +66,7 @@ spring:
         - id: customerhist
           uri: http://customerhist:8080
           predicates:
-            - Path=/customerhists/**,/changeHist/**
+            - Path=/customerHists/**,/changeHists/**
         - id: payment
           uri: http://payment:8080
           predicates:
