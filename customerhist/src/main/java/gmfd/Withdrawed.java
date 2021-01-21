@@ -10,6 +10,10 @@ public class Withdrawed extends AbstractEvent {
     private Integer age;
     private String status;
 
+    public Withdrawed(){
+        super();
+    }
+
     public Long getId() {
         return id;
     }

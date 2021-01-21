@@ -10,6 +10,10 @@ public class Registerd extends AbstractEvent {
     private Integer age;
     private String status;
 
+    public Registerd(){
+        super();
+    }
+
     public Long getId() {
         return id;
     }

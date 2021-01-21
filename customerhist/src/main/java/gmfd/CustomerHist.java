@@ -38,8 +38,6 @@ public class CustomerHist {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
-
     }
 
     public Long getId() {

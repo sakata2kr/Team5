@@ -10,6 +10,10 @@ public class Updated extends AbstractEvent {
     private Integer age;
     private String status;
 
+    public Updated(){
+        super();
+    }
+
     public Long getId() {
         return id;
     }
