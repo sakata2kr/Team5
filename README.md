@@ -130,7 +130,7 @@ ConfigMap으로 logback 설정 정보를 입력하고 해당 정보를 PVC를 �
 
 -- PVC 사용하여 Pod 접근 후 Mount 된 Volume 확인
 
-![pvc](https://user-images.githubusercontent.com/41769626/105125453-bbee4300-5b1f-11eb-9be6-53d64068771a.PNG)
+![pvc](https://user-images.githubusercontent.com/38008563/105298114-9a638900-5bfd-11eb-9fdf-fa94b8da9cca.png)
 
 # Self-Healing (Liveness Probe)
 
