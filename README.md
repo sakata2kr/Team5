@@ -136,7 +136,7 @@ ConfigMap으로 logback 설정 정보를 입력하고 해당 정보를 PVC를 �
 
 아래 조건으로 Deploy
 
-![liveness](https://user-images.githubusercontent.com/41769626/105143130-c8ce5f00-5b3e-11eb-93a2-11abceea70bd.PNG)
+![liveness](https://user-images.githubusercontent.com/38008563/105301682-76ed0e00-5bfe-11eb-9de5-198c50a4c011.png)
 
 루트 아래 iamalive 가 없으므로 계속 restart함 / pod에 접근하여 iamalive 더미 파일을 생성
 
